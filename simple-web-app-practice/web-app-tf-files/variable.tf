@@ -8,7 +8,7 @@ variable "sse_algorithm" {
 
 # VPC
 variable "vpc_cidr_block" {
- default = "10.0.0.0/16"
+  default = "10.0.0.0/16"
 }
 variable "vpc_name" {
   default = "myDemoVPC"
@@ -71,26 +71,26 @@ variable "target_group_heathcheck_port" {
 
 # RDS DATABASE
 variable "allocated_storage" {
-  
+
 }
 variable "db_name" {
-  
+
 }
 variable "engine" {
-  
+
 }
 variable "engine_version" {
-  
+
 }
 variable "instance_class" {
-  
+
 }
 variable "username" {
-  
+
 }
 variable "password" {
-  
+
 }
 variable "parameter_group_name" {
-  
+
 }

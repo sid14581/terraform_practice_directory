@@ -25,8 +25,6 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "damdam-dingdong-c
   }
 }
 
-
-
 # VPC
 resource "aws_vpc" "demoVPC" {
   cidr_block = var.vpc_cidr_block
@@ -207,6 +205,3 @@ resource "aws_db_instance" "db_instance" {
   parameter_group_name = var.parameter_group_name
   skip_final_snapshot  = true
 }
-
-
-
