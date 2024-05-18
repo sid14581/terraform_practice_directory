@@ -3,11 +3,11 @@ ami = "ami-0cd59ecaf368e5ccf"
 instance_type = "t2.micro"
 
 # RDS DATABASE
-  allocated_storage    = var.allocated_storage
-  db_name              = var.db_name
-  engine               = var.engine
-  engine_version       = var.engine_version
-  instance_class       = var.instance_class
-  username             = var.username
-  password             = var.password
-  parameter_group_name = var.parameter_group_name
+  allocated_storage    = 10
+  db_name              = "mydb"
+  engine               = "mysql"
+  engine_version       = "8.0"
+  instance_class       = "db.t3.micro"
+  username             = "foo"
+  password             = "foobarbaz"
+  parameter_group_name = "default.mysql8.0"
