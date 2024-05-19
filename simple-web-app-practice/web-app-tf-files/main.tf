@@ -146,51 +146,51 @@ resource "aws_instance" "webserver2" {
 }
 
 
-# # LOAD BALANCER
-# resource "aws_lb" "demoALB" {
-#   name               = var.load_balancer_name
-#   internal           = false # public
-#   load_balancer_type = var.load_balancer_type
-#   tags = {
-#     Name = var.load_balancer_tag_name
-#   }
-#   security_groups = [aws_security_group.demoSG.id]
-#   subnets         = [aws_subnet.demo_subenet_1.id, aws_subnet.demo_subenet_2.id]
-# }
+# LOAD BALANCER
+resource "aws_lb" "demoALB" {
+  name               = var.load_balancer_name
+  internal           = false # public
+  load_balancer_type = var.load_balancer_type
+  tags = {
+    Name = var.load_balancer_tag_name
+  }
+  security_groups = [aws_security_group.demoSG.id]
+  subnets         = [aws_subnet.demo_subenet_1.id, aws_subnet.demo_subenet_2.id]
+}
 
-# # TARGET GROUP
-# resource "aws_lb_target_group" "demo_target_demo" {
-#   name     = var.target_group_name
-#   port     = 80
-#   protocol = "HTTP"
-#   vpc_id   = aws_vpc.demoVPC.id
-#   health_check {
-#     path = "/"
-#     port = var.target_group_heathcheck_port
-#   }
-# }
+# TARGET GROUP
+resource "aws_lb_target_group" "demo_target_demo" {
+  name     = var.target_group_name
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = aws_vpc.demoVPC.id
+  health_check {
+    path = "/"
+    port = var.target_group_heathcheck_port
+  }
+}
 
-# resource "aws_lb_target_group_attachment" "attach1" {
-#   port             = 80
-#   target_group_arn = aws_lb_target_group.demo_target_demo.arn
-#   target_id        = aws_instance.webserver1.id
-# }
+resource "aws_lb_target_group_attachment" "attach1" {
+  port             = 80
+  target_group_arn = aws_lb_target_group.demo_target_demo.arn
+  target_id        = aws_instance.webserver1.id
+}
 
-# resource "aws_lb_target_group_attachment" "attach2" {
-#   port             = 80
-#   target_group_arn = aws_lb_target_group.demo_target_demo.arn
-#   target_id        = aws_instance.webserver2.id
-# }
+resource "aws_lb_target_group_attachment" "attach2" {
+  port             = 80
+  target_group_arn = aws_lb_target_group.demo_target_demo.arn
+  target_id        = aws_instance.webserver2.id
+}
 
-# resource "aws_lb_listener" "demoListner" {
-#   load_balancer_arn = aws_lb.demoALB.arn
-#   port              = 80
-#   protocol          = "HTTP"
-#   default_action {
-#     target_group_arn = aws_lb_target_group.demo_target_demo.arn
-#     type             = "forward"
-#   }
-# }
+resource "aws_lb_listener" "demoListner" {
+  load_balancer_arn = aws_lb.demoALB.arn
+  port              = 80
+  protocol          = "HTTP"
+  default_action {
+    target_group_arn = aws_lb_target_group.demo_target_demo.arn
+    type             = "forward"
+  }
+}
 
 # RDS DATABASE
 resource "aws_db_instance" "db_instance" {
