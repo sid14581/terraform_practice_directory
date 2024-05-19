@@ -28,8 +28,9 @@ variable "description_http" {
   default = "HTTP from VPC"
 }
 variable "description_ssh" {
-  default = "SSH"
+  default = "SSH from VPC"
 }
+
 variable "sg_name" {
   default = "web-sg"
 }
