@@ -7,6 +7,6 @@ variable "instance_type" {
 }
 
 resource "aws_instance" "example" {
-  ami = var.ami
+  ami           = var.ami
   instance_type = var.instance_type
 }
