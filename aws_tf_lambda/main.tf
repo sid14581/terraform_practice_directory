@@ -30,15 +30,15 @@ resource "aws_iam_policy" "lambda_policy" {
   policy      = <<-EOF
         {
             "Version": "2012-10-17",
-            "Statement": [
-                "Effect": "Allow"
-                "Resource": "arn:aws:logs:*:*:*",
+            "Statement": [{
+                "Effect": "Allow",
+                "Resource": "arn:aws:logs:ca-central-1:*:*",
                 "Action": [
-                    "logs:CreateLogGroup"
-                    "logs:CreateLogStream"
+                    "logs:CreateLogGroup",
+                    "logs:CreateLogStream",
                     "logs:PutLogEvents"
                 ]
-            ] 
+            }]
         }
   EOF
 }
