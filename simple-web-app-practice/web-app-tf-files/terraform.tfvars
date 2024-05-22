@@ -1,5 +1,5 @@
 cidr_block_0  = "0.0.0.0/0"
-ami           = "ami-0e001c9271cf7f3b9"
+ami           = "ami-0c4596ce1e7ae3e68"
 instance_type = "t2.micro"
 
 # RDS DATABASE

@@ -35,14 +35,14 @@ resource "aws_vpc" "demoVPC" {
 resource "aws_subnet" "demo_subenet_1" {
   vpc_id                  = aws_vpc.demoVPC.id
   cidr_block              = "10.0.0.0/24"
-  availability_zone       = "us-east-1a"
+  availability_zone       = "ca-central-1a"
   map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "demo_subenet_2" {
   vpc_id                  = aws_vpc.demoVPC.id
   cidr_block              = "10.0.2.0/24"
-  availability_zone       = "us-east-1b"
+  availability_zone       = "ca-central-1b"
   map_public_ip_on_launch = true
 }
 
@@ -139,7 +139,7 @@ resource "aws_instance" "webserver2" {
   tags = {
     Name = var.instance_tag_name2
   }
-  
+
   subnet_id              = aws_subnet.demo_subenet_2.id
   vpc_security_group_ids = [aws_security_group.demoSG.id]
   user_data              = base64encode(file("./userdata1.sh"))
