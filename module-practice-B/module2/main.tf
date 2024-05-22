@@ -1,7 +1,7 @@
 resource "aws_instance" "EC2_instance_module2" {
   ami                    = var.ami
   instance_type          = var.web-instance-type
-  key_name               = aws_key_pair.name.id
+  key_name               = "aws_key"
   vpc_security_group_ids = [aws_security_group.module2_security_group.id]
 
   user_data = <<-EOF
@@ -38,7 +38,7 @@ resource "aws_security_group" "module2_security_group" {
     cidr_blocks      = ["0.0.0.0/0"]
     from_port        = 22
     to_port          = 22
-    protocol         = "SSH"
+    protocol         = "tcp"
     self             = false
     description      = ""
     security_groups  = []
@@ -49,7 +49,7 @@ resource "aws_security_group" "module2_security_group" {
       cidr_blocks      = ["0.0.0.0/0"]
       from_port        = 80
       to_port          = 80
-      protocol         = "HTTP"
+      protocol         = "tcp"
       self             = false
       description      = ""
       ipv6_cidr_blocks = []

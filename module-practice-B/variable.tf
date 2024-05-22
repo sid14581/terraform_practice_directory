@@ -7,7 +7,7 @@ variable "web-instance-type" {
 variable "ami" {
   type        = string
   description = "EC2 Machine Ami ID"
-  default     = "ami-0bb84b8ffd87024d8"
+  default     = "ami-0c4596ce1e7ae3e68"
 }
 
 variable "aws_key_pair_keyName" {
