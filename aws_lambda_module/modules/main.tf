@@ -51,9 +51,9 @@ data "archive_file" "file_s3" {
 
 # lambda function
 resource "aws_lambda_function" "test_lambda" {
+  filename = "${path.module}/Python_Lambda/list_buckets.zip"  
   function_name = var.function_name
   handler = "list_buckets.get_s3_buckets"
-  filename = "${path.module}/Python_Lambda/list_buckets.zip"
   role = aws_iam_role.role_lambda.arn
   runtime = "python3.11"
   depends_on = [ aws_iam_role_policy_attachment.policy_role_attach ]
