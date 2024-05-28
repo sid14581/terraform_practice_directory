@@ -1,0 +1,10 @@
+{
+    "version" : "2012-10-17",
+    "statement" : [{
+        "effect" : "Allow",
+        "actions" : "sts:AssumeRole",
+        "principle" : {
+            "Service" : "lambda.amazon.com"
+        }
+    }]
+}
