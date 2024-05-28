@@ -3,9 +3,9 @@ variable "function_name" {
 }
 
 variable "role_name" {
-  type = string
+    type = string
 }
 
 variable "policy_name" {
-  type = string
+  type = string  
 }

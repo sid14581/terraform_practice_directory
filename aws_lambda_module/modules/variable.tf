@@ -1,5 +1,5 @@
 variable "function_name" {
-    type = string
+  type = string
 }
 
 variable "role_name" {
@@ -7,5 +7,5 @@ variable "role_name" {
 }
 
 variable "policy_name" {
-    type = string
+  type = string  
 }
