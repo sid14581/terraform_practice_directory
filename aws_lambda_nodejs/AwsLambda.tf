@@ -86,4 +86,3 @@ resource "aws_lambda_function" "testing_lambda" {
   depends_on = [aws_iam_role_policy_attachment.lambda_role]
 }
 
-
