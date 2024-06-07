@@ -14,9 +14,9 @@ resource "aws_route_table" "sid_private_route_table" {
   tags = {
     Name = "sid_private_route_table"
   }
-  depends_on = [ aws.aws_nat_gateway]
+  depends_on = [aws.aws_nat_gateway]
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block     = "0.0.0.0/0"
     nat_gateway_id = aws_nat_gateway.sid_ngw.id
   }
 }
