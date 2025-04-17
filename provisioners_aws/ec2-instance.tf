@@ -7,22 +7,22 @@ resource "aws_instance" "server" {
 
   connection {
     type        = "ssh"
-    user        = "ubuntu"              # Replace with the appropriate username for your EC2 instance
-    private_key = file("~/.ssh/id_rsa") # Replace with the path to your private key
+    user        = "ubuntu"
+    private_key = file("C:\\Users\\<username>\\.ssh\\id_ed25519.pub")
     host        = self.public_ip
   }
 
-  # File provisioner to copy a file from local to the remote EC2 instance
+  
   provisioner "file" {
-    source      = "app.py"              # Replace with the path to your local file
-    destination = "/home/ubuntu/app.py" # Replace with the path on the remote instance
+    source      = "app.py"
+    destination = "/home/ubuntu/app.py"
   }
 
   provisioner "remote-exec" {
     inline = [
       "echo 'Hello from the remote instance'",
-      "sudo apt update -y",                  # Update package lists (for ubuntu)
-      "sudo apt-get install -y python3-pip", # Example package installation
+      "sudo apt update -y",
+      "sudo apt-get install -y python3-pip",
       "cd /home/ubuntu",
       "sudo pip3 install flask",
       "sudo python3 app.py &",
