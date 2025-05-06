@@ -6,10 +6,10 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = var.bucket_name
-    key            = var.key
-    region         = var.region
-    dynamodb_table = var.dynamodb_table
+    bucket         = "ecs-fargate-wordpress-rds-bucket"
+    key            = "ecs-fargate-wordpress-rds/terraform.tfstate"
+    region         = "us-east-2"
+    dynamodb_table = "ecs-fargate-wordpress-rds-lock"
     encrypt        = true
   }
 }
