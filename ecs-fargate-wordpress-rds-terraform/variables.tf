@@ -82,3 +82,30 @@ variable "ecs_security_group_rds_name" {
   type        = string
   default     = "ecs-fargate-wordpress-rds-sg"
 }
+
+# RDS
+
+variable "db_instance_type" {
+  description = "RDS instance type"
+  default = "db.t3.micro"
+}
+
+variable "db_name" {
+  description = "The name of the database"
+  type        = string
+  default     = "wordpressdb"
+}
+
+variable "db_user" {
+  description = "The username for the database"
+  type        = string
+  default     = "wordpressuser"
+}
+
+variable "db_password" {
+  description = "The password for the database"
+  type        = string
+  default     = "wordpresspassword"
+}
+
+
