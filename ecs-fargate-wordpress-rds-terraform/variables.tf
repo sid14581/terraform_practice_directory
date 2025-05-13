@@ -5,6 +5,7 @@ variable "region" {
 }
 
 
+
 # VPC
 variable "vpc_cidr" {
   description = "The CIDR block for the VPC"
